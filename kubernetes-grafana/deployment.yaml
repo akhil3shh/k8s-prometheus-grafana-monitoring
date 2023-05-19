@@ -22,19 +22,19 @@ spec:
         containerPort: 3000
       resources: 
         limits:
-        memory: "1Gi"
-        cpu: "500m"
+          memory: "1Gi"
+          cpu: "500m"
       volumeMounts:
         - mountPath: /var/lib/garfana
           name: grafana-storage
         - mountPath: /etc/grafana/provisioning/datasources
           name: garafana-datasources
           readOnly: false
-      volumes: 
-        - name: garafana-storage
-          emptyDir: {}
-        - name: garafana-datasources
-          configMap: 
+    volumes: 
+      - name: garafana-storage
+        emptyDir: {}
+      - name: garafana-datasources
+        configMap: 
             defaultMode: 420
             name: garafana-datasources
 
